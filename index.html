@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gocase — Linha térmica V3</title>
+    <script>
+      (() => {
+        const fix = node => {
+          if (node?.tagName !== "IMG") return;
+          const src = node.getAttribute("src");
+          if (src?.startsWith("/")) node.src = new URL(`.${src}`, document.baseURI).href;
+        };
+        new MutationObserver(records => records.forEach(record =>
+          record.addedNodes.forEach(node => {
+            fix(node);
+            node.querySelectorAll?.("img").forEach(fix);
+          })
+        )).observe(document.documentElement, { childList: true, subtree: true });
+      })();
+    </script>
+    <script type="module" crossorigin src="./assets/index-CuF4maxi.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Bc00OsiW.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
